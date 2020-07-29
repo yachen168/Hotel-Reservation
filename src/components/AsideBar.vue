@@ -1,14 +1,12 @@
 <template>
-  <div class="aside-bar">
-    <ul>
-      <li>Single Room</li>
-      <li>Deluxe Single Room</li>
-      <li>Double Room</li>
-      <li>Deluxe Double Room</li>
-      <li>Twin Room</li>
-      <li>Deluxe Twin Room</li>
-    </ul>
-  </div>
+  <ul class="aside-bar">
+    <li>Single Room</li>
+    <li>Deluxe Single Room</li>
+    <li>Double Room</li>
+    <li>Deluxe Double Room</li>
+    <li>Twin Room</li>
+    <li>Deluxe Twin Room</li>
+  </ul>
 </template>
 
 <script>
@@ -20,7 +18,7 @@ export default {};
   width: 310px;
   position: relative;
   padding: 35px;
-  font-size: 18px;
+  font-size: 17px;
   background: $white;
   &::before {
     content: "";
