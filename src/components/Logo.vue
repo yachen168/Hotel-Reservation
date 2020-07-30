@@ -12,6 +12,7 @@ export default {};
   justify-content: center;
   align-items: center;
   position: relative;
+  margin-top: 15px;
   width: 148px;
   height: 148px;
   text-align: center;
@@ -19,33 +20,26 @@ export default {};
   font-size: 35px;
   color: $white;
   font-weight: 500;
-  z-index: 0;
   &::before,
   &::after {
     content: "";
     position: absolute;
     background-image: repeating-linear-gradient(
       45deg,
-      $gray 0px,
-      $gray 3px,
-      #fff 3px,
-      #fff 4px,
-      $gray 4px,
-      $gray 7px
+      transparent 0px,
+      transparent 3px,
+      $white 3px,
+      $white 4px,
+      transparent 4px,
+      transparent 7px
     );
   }
   &::before {
-    width: 15px;
+    width: 100%;
     height: 100%;
     left: -17px;
     bottom: 17px;
-  }
-
-  &::after {
-    width: 100%;
-    height: 15px;
-    bottom: 146px;
-    right: 17px;
+    clip-path: polygon(0 0, 100% 0, 100% 17px, 17px 17px, 17px 100%, 0 100%);
   }
 }
 </style>
