@@ -20,10 +20,13 @@ export default {};
   font-size: 35px;
   color: $white;
   font-weight: 500;
-  &::before,
-  &::after {
+  &::before {
     content: "";
     position: absolute;
+    width: 100%;
+    height: 100%;
+    left: -17px;
+    bottom: 17px;
     background-image: repeating-linear-gradient(
       45deg,
       transparent 0px,
@@ -33,12 +36,6 @@ export default {};
       transparent 4px,
       transparent 7px
     );
-  }
-  &::before {
-    width: 100%;
-    height: 100%;
-    left: -17px;
-    bottom: 17px;
     clip-path: polygon(0 0, 100% 0, 100% 17px, 17px 17px, 17px 100%, 0 100%);
   }
 }
