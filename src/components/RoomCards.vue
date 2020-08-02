@@ -6,16 +6,16 @@
         sm="6"
         md="4"
         class="mb-5"
-        v-for="room in allRooms"
+        v-for="(room, index) in allRooms"
         :key="room.id"
       >
-        <figure class="card">
+        <figure class="card" @click="toRoomDetail(index + 1)">
           <div
             class="image"
             :style="{ backgroundImage: 'url(' + room.imageUrl + ')' }"
           ></div>
           <figcaption class="card-footer">
-            <h1>Single Room</h1>
+            <h1>{{ room.name }}</h1>
             <div class="prices">
               <h2 class="normal-price">
                 <span>NT {{ room.normalDayPrice }}</span> 平日
@@ -36,6 +36,11 @@ export default {
       type: Array,
       required: true
     }
+  },
+  methods: {
+    toRoomDetail(RoomIndex) {
+      this.$router.push({ name: "RoomInfo", params: { index: RoomIndex } });
+    }
   }
 };
 </script>
@@ -53,7 +58,6 @@ export default {
   box-shadow: 2px 2px 9px 0 rgba(0, 0, 0, 0.18);
   .image {
     flex: 5;
-    overflow: hidden;
     background-size: cover;
     background-position: 50% 50%;
   }
