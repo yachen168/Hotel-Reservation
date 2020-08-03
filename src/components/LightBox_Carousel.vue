@@ -57,10 +57,8 @@ export default {
         this.nowImageIndex = 0;
       }
     },
-    close(e) {
-      if (e.currentTarget.classList.contains("carousel-lightbox")) {
-        this.$emit("closeLightbox");
-      }
+    close() {
+      this.$emit("closeLightbox");
     }
   }
 };
