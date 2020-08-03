@@ -12,7 +12,7 @@
 import HeaderContent from "@/components/HeaderContent";
 import Carousel from "@/components/Carousel";
 import RoomCards from "@/components/RoomCards";
-import { mapState, mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   components: {
@@ -21,17 +21,13 @@ export default {
     RoomCards
   },
   methods: {
-    ...mapActions({
-      getAllRooms: "getAllRooms"
-    })
+    ...mapActions(["getAllRoomsInfo"])
   },
   created() {
-    this.getAllRooms();
+    this.getAllRoomsInfo();
   },
   computed: {
-    ...mapState({
-      allRooms: state => state.state.allRooms
-    })
+    ...mapGetters(["allRooms"])
   }
 };
 </script>
