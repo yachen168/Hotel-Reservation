@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isShowCarouselLightBox" class="carousel-lightbox" @click="close">
+  <div class="carousel-lightbox" @click="close">
     <div class="carousel" @click.stop>
       <div
         class="bgImage"
@@ -24,10 +24,6 @@
 <script>
 export default {
   props: {
-    isShowCarouselLightBox: {
-      type: Boolean,
-      required: true
-    },
     roomUrls: {
       type: Array,
       required: true
