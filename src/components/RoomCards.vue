@@ -6,10 +6,10 @@
         sm="6"
         md="4"
         class="mb-5"
-        v-for="(room, index) in allRooms"
+        v-for="room in allRooms"
         :key="room.id"
       >
-        <figure class="card" @click="toRoomDetail(index + 1)">
+        <figure class="card" @click="toRoomDetail(room.id)">
           <div
             class="image"
             :style="{ backgroundImage: 'url(' + room.imageUrl + ')' }"
@@ -38,8 +38,11 @@ export default {
     }
   },
   methods: {
-    toRoomDetail(RoomIndex) {
-      this.$router.push({ name: "RoomInfo", params: { index: RoomIndex } });
+    toRoomDetail(roomId) {
+      this.$router.push({
+        name: "RoomInfo",
+        params: { id: roomId }
+      });
     }
   }
 };
@@ -50,6 +53,7 @@ export default {
   max-width: 950px;
   margin: 0 auto;
   padding: 0 10px;
+  transform: translateY(-80px);
 }
 
 .card {
@@ -61,18 +65,18 @@ export default {
     background-size: cover;
     background-position: 50% 50%;
   }
-}
-
-.card-footer {
-  flex: 1;
-  padding: 20px;
-  h1 {
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-    font-size: 16px;
-    font-weight: 300;
+  &-footer {
+    flex: 1;
+    padding: 20px;
+    h1 {
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      font-size: 16px;
+      font-weight: 300;
+    }
   }
 }
+
 .prices {
   display: flex;
   justify-content: space-between;
