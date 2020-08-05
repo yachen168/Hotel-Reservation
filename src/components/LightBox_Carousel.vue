@@ -3,7 +3,7 @@
     <div class="carousel" @click.stop>
       <div
         class="bgImage"
-        :style="{ backgroundImage: 'url(' + roomUrls[nowImageIndex] + ')' }"
+        :style="{ backgroundImage: 'url(' + roomUrls[index] + ')' }"
       ></div>
       <div class="arrow arrow-prev" @click.stop="showLastImage">
         <font-awesome-icon icon="chevron-left" />
@@ -13,9 +13,7 @@
       </div>
       <div class="footer">
         <h1 class="room-name">{{ roomName }}</h1>
-        <span class="count"
-          >{{ nowImageIndex + 1 }} / {{ roomUrls.length }}</span
-        >
+        <span class="count">{{ index + 1 }} / {{ roomUrls.length }}</span>
       </div>
     </div>
   </div>
@@ -38,19 +36,21 @@ export default {
     }
   },
   data() {
-    return {};
+    return {
+      index: this.nowImageIndex
+    };
   },
   methods: {
     showLastImage() {
-      this.nowImageIndex--;
-      if (this.nowImageIndex < 0) {
-        this.nowImageIndex = this.roomUrls.length - 1;
+      this.index--;
+      if (this.index < 0) {
+        this.index = this.roomUrls.length - 1;
       }
     },
     showNextImage() {
-      this.nowImageIndex++;
-      if (this.nowImageIndex > this.roomUrls.length - 1) {
-        this.nowImageIndex = 0;
+      this.index++;
+      if (this.index > this.roomUrls.length - 1) {
+        this.index = 0;
       }
     },
     close() {
