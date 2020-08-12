@@ -1,8 +1,8 @@
 export default {
-  allRooms(state) {
-    return state.state.allRooms;
+  allRooms({ state }) {
+    return state.allRooms;
   },
-  roomInfo(state) {
-    return state.state.room[0];
+  roomInfo({ state }) {
+    return state.room[0];
   }
 };
