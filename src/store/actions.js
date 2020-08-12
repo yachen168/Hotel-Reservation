@@ -1,12 +1,12 @@
 import Axios from "@/api/config.js";
 
 export default {
-  async getAllRoomsInfo(context) {
+  async getAllRoomsInfo({ commit }) {
     const allRooms = await Axios.get("rooms");
-    context.commit("setAllRoomsInfo", allRooms.data.items);
+    commit("setAllRoomsInfo", allRooms.data.items);
   },
-  async getRoomInfo(context, roomId) {
+  async getRoomInfo({ commit }, roomId) {
     const roomInfo = await Axios.get(`room/${roomId}`);
-    context.commit("setRoomInfo", roomInfo.data);
+    commit("setRoomInfo", roomInfo.data);
   }
 };
