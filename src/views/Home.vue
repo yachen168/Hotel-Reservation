@@ -4,7 +4,9 @@
       <Carousel :allRooms="allRooms"></Carousel>
       <HeaderContent></HeaderContent>
     </header>
-    <RoomCards :allRooms="allRooms"></RoomCards>
+    <main>
+      <RoomCards :allRooms="allRooms"></RoomCards>
+    </main>
   </div>
 </template>
 
