@@ -20,20 +20,12 @@
           <h3>台北市羅斯福路十段30號</h3>
         </div>
       </div>
-      <img class="background-image" src="" alt="" />
     </section>
   </div>
 </template>
 
 <script>
-export default {
-  props: {
-    // rooms: {
-    //   type: Array,
-    //   required: true
-    // }
-  }
-};
+export default {};
 </script>
 
 <style lang="scss" scoped>
@@ -42,6 +34,15 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: absolute;
+  height: 400px;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  @media (min-width: 1200px) {
+    margin-top: 100px;
+  }
 }
 
 .logo {
@@ -57,7 +58,7 @@ export default {
   font-size: 35px;
   color: $white;
   font-weight: 500;
-  background-color: $gray;
+  background-color: $gray-200;
   &::before {
     content: "";
     position: absolute;
@@ -67,12 +68,12 @@ export default {
     bottom: 17px;
     background-image: repeating-linear-gradient(
       45deg,
-      $gray 0px,
-      $gray 3px,
+      $gray-200 0px,
+      $gray-200 3px,
       $white 3px,
       $white 4px,
-      $gray 4px,
-      $gray 7px
+      $gray-200 4px,
+      $gray-200 7px
     );
     clip-path: polygon(0 0, 100% 0, 100% 17px, 17px 17px, 17px 100%, 0 100%);
   }
@@ -83,6 +84,7 @@ export default {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  margin-left: 30px;
   width: 50%;
   align-items: center;
   color: $white;
@@ -98,7 +100,7 @@ export default {
     }
   }
   .contact-detail {
-    flex: 0 0 280px;
+    flex: 0 0 300px;
     position: relative;
     margin-top: 20px;
     padding-left: 25px;
@@ -116,11 +118,11 @@ export default {
     svg {
       margin-right: 20px;
       vertical-align: middle;
-      font-size: 16px;
+      font-size: 18px;
     }
     h3 {
       display: inline;
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 400;
       vertical-align: middle;
     }

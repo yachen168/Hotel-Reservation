@@ -1,13 +1,17 @@
 <template>
-  <Datepicker
-    :inline="true"
-    :language="language"
-    :format="DatePickerFormat"
-    :highlighted="highlighted"
-    :disabled-dates="disabledDates"
-    :calendar-class="{ calendarClass: true }"
-    :bootstrap-styling="true"
-  ></Datepicker>
+  <div>
+    <h3 class="hint">顯示近 90 日的房間預訂狀態，劃線代表已被預訂</h3>
+    <Datepicker
+      :inline="true"
+      :language="language"
+      :format="DatePickerFormat"
+      :highlighted="highlighted"
+      :disabled-dates="disabledDates"
+      :calendar-class="{ calendarClass: true }"
+      :bootstrap-styling="true"
+      :class="{ selected: true, disabled: true }"
+    ></Datepicker>
+  </div>
 </template>
 
 <script>
@@ -57,7 +61,13 @@ export default {
     },
     disabledDates() {
       return {
-        to: new Date(Date.now() - 8640000)
+        to: new Date(Date.now() - 8640000),
+        customPredictor: function(date) {
+          const daysFromNow =
+            (date.getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24.0);
+
+          if (daysFromNow > 90) return true; // 未來 90 天
+        }
       };
     }
   }
@@ -65,12 +75,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.hint {
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: normal;
+  color: #666;
+}
 ::v-deep .calendarClass {
+  width: 100%;
+  padding: 10px;
   border: none;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
-  padding: 10px;
-  width: 100%;
-  min-width: 360px;
   background-color: #f7f7f7;
   color: #6d7278;
   .cell {
