@@ -1,5 +1,10 @@
 <template>
   <div class="booking-result">
+    <b-overlay
+      :show="!bookingStatus"
+      class="position-absolute"
+      rounded="sm"
+    ></b-overlay>
     <section v-if="bookingResult === 'success'">
       <h1>預約成功</h1>
       <div class="icon">
