@@ -8,5 +8,15 @@ export default {
   async getRoomInfo({ commit }, roomId) {
     const roomInfo = await Axios.get(`room/${roomId}`);
     commit("setRoomInfo", roomInfo.data);
+    return roomInfo;
+  },
+  async postBooking({ dispatch, commit }, [roomId, infoObject]) {
+    try {
+      await Axios.post(`room/${roomId}`, infoObject);
+      commit("setBookingStatus", "success");
+      dispatch("getRoomInfo", roomId);
+    } catch (error) {
+      commit("setBookingStatus", "fail");
+    }
   }
 };
