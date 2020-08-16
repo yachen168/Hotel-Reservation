@@ -61,12 +61,11 @@ export default {
     },
     disabledDates() {
       return {
-        to: new Date(Date.now() - 8640000),
+        to: new Date(Date.now() - 86400),
         customPredictor: function(date) {
-          const daysFromNow =
-            (date.getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24.0);
-
-          if (daysFromNow > 90) return true; // 未來 90 天
+          const now = Date.now();
+          const totalSecondsInNintyDays = 1000 * 60 * 60 * 24 * 90;
+          if (date.getTime() > now + totalSecondsInNintyDays) return true;
         }
       };
     }
