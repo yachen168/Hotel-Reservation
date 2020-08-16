@@ -1,5 +1,8 @@
 # 旅館預約服務
 [Demo](https://yachen168.github.io/Hotel-Reservation/)
+
+![](./demo.png)
+
 ## 使用技術
 - Vue
 - Vuex
