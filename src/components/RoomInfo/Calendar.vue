@@ -61,10 +61,10 @@ export default {
     },
     disabledDates() {
       return {
-        to: new Date(Date.now() - 86400),
+        to: new Date(Date.now() - 60 * 60 * 24 * 1000),
         customPredictor: function(date) {
           const now = Date.now();
-          const totalSecondsInNintyDays = 1000 * 60 * 60 * 24 * 90;
+          const totalSecondsInNintyDays = 60 * 60 * 24 * 90 * 1000;
           if (date.getTime() > now + totalSecondsInNintyDays) return true;
         }
       };
