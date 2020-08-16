@@ -11,10 +11,11 @@
 </template>
 
 <script>
-import HeaderContent from "@/components/HeaderContent";
-import Carousel from "@/components/Carousel";
-import RoomCards from "@/components/RoomCards";
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
+import HeaderContent from "@/components/Home/HeaderContent";
+import Carousel from "@/components/Home/Carousel";
+import RoomCards from "@/components/Home/RoomCards";
+import store from "@/store/index";
 
 export default {
   components: {
@@ -22,11 +23,10 @@ export default {
     Carousel,
     RoomCards
   },
-  methods: {
-    ...mapActions(["getAllRoomsInfo"])
-  },
-  created() {
-    this.getAllRoomsInfo();
+  beforeRouteEnter(routerTo, routerFrom, next) {
+    store.dispatch("getAllRoomsInfo").then(() => {
+      next();
+    });
   },
   computed: {
     ...mapGetters(["allRooms"])
