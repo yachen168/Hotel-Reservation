@@ -3,7 +3,6 @@ export default {
     allRooms: [],
     room: [],
     booking: [],
-    bookingStatus: "",
-    isLoading: true
+    bookingStatus: ""
   }
 };
