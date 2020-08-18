@@ -1,17 +1,12 @@
 <template>
-  <div>
-    <h3 class="hint">顯示近 90 日的房間預訂狀態，劃線代表已被預訂</h3>
-    <Datepicker
-      :inline="true"
-      :language="language"
-      :format="DatePickerFormat"
-      :highlighted="highlighted"
-      :disabled-dates="disabledDates"
-      :calendar-class="{ calendarClass: true }"
-      :bootstrap-styling="true"
-      :class="{ selected: true, disabled: true }"
-    ></Datepicker>
-  </div>
+  <Datepicker
+    :inline="isCalendarInline"
+    :language="language"
+    :format="DatePickerFormat"
+    :highlighted="datesHaveBeenBooked"
+    :disabled-dates="daysOut90Days"
+    :calendar-class="calendarStyle"
+  ></Datepicker>
 </template>
 
 <script>
@@ -22,14 +17,34 @@ export default {
     Datepicker
   },
   props: {
+    isCalendarInline: {
+      type: Boolean,
+      required: true
+    },
     datesHaveBeenBooked: {
-      type: Array,
+      type: Object,
+      required: true
+    },
+    calendarStyle: {
+      type: String,
       required: true
     }
   },
   data() {
     return {
       DatePickerFormat: "yyyy-MM-dd",
+      daysOut90Days: {
+        customPredictor: function(date) {
+          const now = Date.now();
+          const totalSecondsADay = 60 * 60 * 24 * 1000;
+          const totalSecondsOfNintyDays = 60 * 60 * 24 * 90 * 1000;
+          if (
+            date.getTime() > now + totalSecondsOfNintyDays ||
+            date.getTime() < now - totalSecondsADay
+          )
+            return true;
+        }
+      },
       language: {
         language: "Chinese",
         days: ["日", "一", "二", "三", "四", "五", "六"],
@@ -52,37 +67,12 @@ export default {
         ]
       }
     };
-  },
-  computed: {
-    highlighted() {
-      return {
-        dates: this.datesHaveBeenBooked
-      };
-    },
-    disabledDates() {
-      return {
-        to: new Date(Date.now() - 60 * 60 * 24 * 1000),
-        customPredictor: function(date) {
-          const now = Date.now();
-          const totalSecondsInNintyDays = 60 * 60 * 24 * 90 * 1000;
-          if (date.getTime() > now + totalSecondsInNintyDays) return true;
-        }
-      };
-    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.hint {
-  margin-bottom: 15px;
-  letter-spacing: 1px;
-  text-align: center;
-  font-size: 17px;
-  font-weight: normal;
-  color: #666;
-}
-::v-deep .calendarClass {
+::v-deep .calendarStyle {
   width: 100%;
   padding: 10px;
   border: none;
