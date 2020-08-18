@@ -100,20 +100,26 @@ export default {};
     }
   }
   .contact-detail {
-    flex: 0 0 300px;
+    flex: 0 0 280px;
     position: relative;
     margin-top: 20px;
-    padding-left: 25px;
+    @media (min-width: 768px) {
+      padding-left: 25px;
+    }
     > div:not(:last-child) {
       margin-bottom: 10px;
     }
     &::before {
       content: "";
       position: absolute;
+      display: none;
       width: 1px;
       left: 0;
       height: 100%;
       background-color: #fff;
+      @media (min-width: 768px) {
+          display: block;
+      }
     }
     svg {
       margin-right: 20px;
