@@ -10,9 +10,9 @@ export default {
     commit("setRoomInfo", roomInfo.data);
     return roomInfo;
   },
-  async postBooking({ dispatch, commit }, [roomId, infoObject]) {
+  async postBooking({ dispatch, commit }, { roomId, userBookingInfo }) {
     try {
-      await Axios.post(`room/${roomId}`, infoObject);
+      await Axios.post(`room/${roomId}`, userBookingInfo);
       commit("setBookingStatus", "success");
       dispatch("getRoomInfo", roomId);
     } catch (error) {
