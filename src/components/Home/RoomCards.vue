@@ -1,5 +1,5 @@
 <template>
-  <figure class="card" @click="toRoomDetail(room.id)">
+  <figure class="card" @click="toRoomDetailPage(room.id)">
     <div
       class="image"
       :style="{ backgroundImage: 'url(' + room.imageUrl + ')' }"
@@ -25,11 +25,8 @@ export default {
     }
   },
   methods: {
-    toRoomDetail(roomId) {
-      this.$router.push({
-        name: "RoomInfo",
-        params: { id: roomId }
-      });
+    toRoomDetailPage(roomId) {
+      this.$emit("toRoomDetailPage", roomId);
     }
   }
 };

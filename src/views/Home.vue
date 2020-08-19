@@ -14,7 +14,9 @@
           md="4"
           class="mb-5"
         >
-          <RoomCards :room="room"></RoomCards>
+          <RoomCards
+            :room="room"
+            @toRoomDetailPage="toRoomDetailPage"></RoomCards>
         </b-col>
       </b-row>
     </main>
@@ -35,6 +37,14 @@ export default {
   },
   created() {
     console.log(this.allRooms);
+  },
+  methods: {
+    toRoomDetailPage(roomId) {
+      this.$router.push({
+        name: "RoomInfo",
+        params: { id: roomId }
+      });
+    }
   },
   computed: {
     ...mapGetters(["allRooms"])
