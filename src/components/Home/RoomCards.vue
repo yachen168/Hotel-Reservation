@@ -1,37 +1,26 @@
 <template>
-  <b-row class="room-cards mx-auto">
-    <b-col
-      cols="10"
-      sm="6"
-      md="4"
-      class="mb-5"
-      v-for="room in allRooms"
-      :key="room.id"
-    >
-      <figure class="card" @click="toRoomDetail(room.id)">
-        <div
-          class="image"
-          :style="{ backgroundImage: 'url(' + room.imageUrl + ')' }"
-        ></div>
-        <figcaption class="card-footer">
-          <h1>{{ room.name }}</h1>
-          <div class="prices">
-            <h2 class="normal-price">
-              <span>NT.{{ room.normalDayPrice }}</span> 平日
-            </h2>
-            <h2 class="holiday-price">NT.{{ room.holidayPrice }} 假日</h2>
-          </div>
-        </figcaption>
-      </figure>
-    </b-col>
-  </b-row>
+  <figure class="card" @click="toRoomDetail(room.id)">
+    <div
+      class="image"
+      :style="{ backgroundImage: 'url(' + room.imageUrl + ')' }"
+    ></div>
+    <figcaption class="card-footer">
+      <h1>{{ room.name }}</h1>
+      <div class="prices">
+        <h2 class="normal-price">
+          <span>NT.{{ room.normalDayPrice }}</span> 平日
+        </h2>
+        <h2 class="holiday-price">NT.{{ room.holidayPrice }} 假日</h2>
+      </div>
+    </figcaption>
+  </figure>
 </template>
 
 <script>
 export default {
   props: {
-    allRooms: {
-      type: Array,
+    room: {
+      type: Object,
       required: true
     }
   },
@@ -47,14 +36,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.room-cards {
-  justify-content: center;
-  max-width: 950px;
-  margin: 0 auto;
-  padding: 0 10px;
-  transform: translateY(-100px);
-}
-
 .card {
   display: flex;
   height: 350px;
