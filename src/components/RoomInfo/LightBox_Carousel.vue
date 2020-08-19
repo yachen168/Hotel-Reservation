@@ -3,7 +3,7 @@
     <div class="carousel" @click.stop>
       <div
         class="bgImage"
-        :style="{ backgroundImage: 'url(' + roomUrls[index] + ')' }"
+        :style="{ backgroundImage: `url(${roomUrls[index]})` }"
       ></div>
       <div class="arrow arrow-prev" @click.stop="showLastImage">
         <font-awesome-icon icon="chevron-left" />
