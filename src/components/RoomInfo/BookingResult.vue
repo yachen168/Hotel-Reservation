@@ -1,11 +1,7 @@
 <template>
   <div class="booking-result">
-    <b-overlay
-      :show="!bookingStatus"
-      class="position-absolute"
-      rounded="sm"
-    ></b-overlay>
-    <section v-if="bookingResult === 'success'">
+    <b-overlay :show="!bookingStatus" class="position-absolute"></b-overlay>
+    <section v-if="bookingStatus === 'success'">
       <h1>預約成功</h1>
       <div class="icon">
         <font-awesome-icon icon="check-circle"></font-awesome-icon>
@@ -14,7 +10,7 @@
         回頁面
       </button>
     </section>
-    <section v-if="bookingResult === 'fail'">
+    <section v-if="bookingStatus === 'fail'">
       <h1>預約失敗</h1>
       <p>預約時間已被人預定</p>
       <button class="close-button" @click.prevent.stop="closeBookingResult">
@@ -40,11 +36,6 @@ export default {
   methods: {
     closeBookingResult() {
       this.$emit("closeBookingResult");
-    }
-  },
-  computed: {
-    bookingResult() {
-      return this.bookingStatus;
     }
   }
 };
