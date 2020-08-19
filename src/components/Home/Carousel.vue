@@ -1,10 +1,5 @@
 <template>
-  <b-carousel
-    id="carousel-1"
-    :interval="4000"
-    img-height="500"
-    style="text-shadow: 1px 1px 2px #333;"
-  >
+  <b-carousel :interval="4000">
     <b-carousel-slide
       v-for="room in allRooms"
       :key="room.id"

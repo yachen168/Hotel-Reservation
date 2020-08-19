@@ -105,6 +105,7 @@ export default {};
     margin-top: 20px;
     @media (min-width: 768px) {
       padding-left: 25px;
+      flex: 0 0 305px;
     }
     > div:not(:last-child) {
       margin-bottom: 10px;
@@ -118,7 +119,7 @@ export default {};
       height: 100%;
       background-color: #fff;
       @media (min-width: 768px) {
-          display: block;
+        display: block;
       }
     }
     svg {
