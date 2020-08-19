@@ -2,7 +2,7 @@
   <figure class="card" @click="toRoomDetailPage(room.id)">
     <div
       class="image"
-      :style="{ backgroundImage: 'url(' + room.imageUrl + ')' }"
+      :style="{ backgroundImage: `url(${room.imageUrl})` }"
     ></div>
     <figcaption class="card-footer">
       <h1>{{ room.name }}</h1>
