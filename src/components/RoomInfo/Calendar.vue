@@ -1,11 +1,11 @@
 <template>
   <Datepicker
-    :inline="isCalendarInline"
+    :inline="true"
     :language="language"
     :format="DatePickerFormat"
-    :highlighted="datesHaveBeenBooked"
+    :highlighted="highlighted"
     :disabled-dates="daysOut90Days"
-    :calendar-class="calendarStyle"
+    calendar-class="calendarStyle"
   ></Datepicker>
 </template>
 
@@ -17,16 +17,8 @@ export default {
     Datepicker
   },
   props: {
-    isCalendarInline: {
-      type: Boolean,
-      required: true
-    },
-    datesHaveBeenBooked: {
+    highlighted: {
       type: Object,
-      required: true
-    },
-    calendarStyle: {
-      type: String,
       required: true
     }
   },
@@ -82,6 +74,7 @@ export default {
   .cell {
     line-height: 40px;
     margin: 5px 0;
+    pointer-events: none;
   }
   .cell.day-header {
     font-size: 18px;
