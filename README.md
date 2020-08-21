@@ -7,9 +7,11 @@
 - Vue
 - Vuex
 - Vue Router
+- Vue CLI
 - BootstrapVue
 - Font Awesome
 - NProgress
+- Sass
 - Vue.js Datepicker
 - Axios
 
@@ -27,6 +29,7 @@
 - 可以進行線上訂房，需填寫符合格式的姓名、電話、預約起迄。
 - 在選擇預約日期時，會即時顯示訂房價格總價 (平日價 + 假日價)。
 - 只能預約未來 90 天內的時段。
+- 在頁面跳轉與等待預約結果時，添加 loading，提高使用者體驗。
 - 回傳預約結果：
   - 成功：即時顯示(highlight)在日曆上
   - 失敗：預約時間已被人預訂
