@@ -5,20 +5,23 @@
       <HeaderContent></HeaderContent>
     </header>
     <main>
-      <b-row class="room-cards-wrapper mx-auto">
-        <b-col
-          v-for="room in allRooms"
-          :key="room.id"
-          cols="10"
-          sm="6"
-          md="4"
-          class="mb-5"
-        >
-          <RoomCards
-            :room="room"
-            @toRoomDetailPage="toRoomDetailPage"></RoomCards>
-        </b-col>
-      </b-row>
+      <b-container fluid>
+        <b-row class="room-cards-wrapper mx-auto">
+          <b-col
+            v-for="room in allRooms"
+            :key="room.id"
+            cols="12"
+            sm="6"
+            lg="4"
+            class="mb-5"
+          >
+            <RoomCards
+              :room="room"
+              @toRoomDetailPage="toRoomDetailPage"
+            ></RoomCards>
+          </b-col>
+        </b-row>
+      </b-container>
     </main>
   </div>
 </template>
@@ -53,15 +56,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-header {
-  position: relative;
-}
-
 .room-cards-wrapper {
   justify-content: center;
   max-width: 950px;
   margin: 0 auto;
-  padding: 0 10px;
   transform: translateY(-100px);
 }
 </style>
