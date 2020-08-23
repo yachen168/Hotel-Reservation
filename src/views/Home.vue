@@ -38,9 +38,6 @@ export default {
     Carousel,
     RoomCards
   },
-  created() {
-    console.log(this.allRooms);
-  },
   methods: {
     toRoomDetailPage(roomId) {
       this.$router.push({
