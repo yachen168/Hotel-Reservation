@@ -6,7 +6,7 @@
     </header>
     <main>
       <b-container fluid>
-        <b-row class="room-cards-wrapper mx-auto">
+        <b-row class="room-cards-wrapper">
           <b-col
             v-for="room in allRooms"
             :key="room.id"
