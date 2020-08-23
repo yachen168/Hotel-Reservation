@@ -29,7 +29,7 @@ export default {
         customPredictor: function(date) {
           const now = Date.now();
           const totalSecondsADay = 60 * 60 * 24 * 1000;
-          const totalSecondsOfNintyDays = 60 * 60 * 24 * 90 * 1000;
+          const totalSecondsOfNintyDays = totalSecondsADay * 90;
           if (
             date.getTime() > now + totalSecondsOfNintyDays ||
             date.getTime() < now - totalSecondsADay
