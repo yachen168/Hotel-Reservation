@@ -87,13 +87,8 @@ export default {
   padding: 15px;
   margin-top: 40px;
   background-color: $gray-300;
-<<<<<<< HEAD
   @media (min-width: 576px) {
     grid-template-columns: 1fr 1fr 1fr;
-=======
-  @media (min-width:576px) {
-      grid-template-columns: 1fr 1fr 1fr;
->>>>>>> 87af8591143918a1ea76eab497005c6ebafe2a24
   }
   &-item {
     display: flex;
