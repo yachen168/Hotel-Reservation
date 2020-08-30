@@ -35,6 +35,15 @@
   - 失敗：預約時間已被人預訂
 
 
+## 學習重點紀錄
+- API 管理 (axios)。
+- 使用 async / await，提高程式碼可讀性。
+- 為了避免頁面跳轉時出現畫面白屏的情況，選擇在 router 發 API 請求，提高使用者體驗。
+- 在發送 API 請求至伺服器回傳資料期間，使用 NProgress 進度條，提高使用者體驗。
+- 透過閱讀 Vue.js Datepicker 文件，客製化符合需求的 datepicker。
+- 時間格式處理，例如 `new Date()`、`getDate()`、`getDay()`、`getTime()`、`toLocaleDateString()`......等
+- 在 Vue 中使用 Font Awesome。
+
 
 <br>
 
