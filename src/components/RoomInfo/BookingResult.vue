@@ -6,14 +6,20 @@
       <div class="icon">
         <font-awesome-icon icon="check-circle"></font-awesome-icon>
       </div>
-      <button class="close-button" @click.prevent.stop="closeBookingResult">
+      <button
+        class="close-button"
+        @click.prevent.stop="$emit('closeBookingResult')"
+      >
         回頁面
       </button>
     </section>
     <section v-if="bookingStatus === 'fail'">
       <h1>預約失敗</h1>
       <p>預約時間已被人預定</p>
-      <button class="close-button" @click.prevent.stop="closeBookingResult">
+      <button
+        class="close-button"
+        @click.prevent.stop="$emit('closeBookingResult')"
+      >
         返回
       </button>
     </section>
@@ -31,11 +37,6 @@ export default {
     roomId: {
       type: String,
       required: true
-    }
-  },
-  methods: {
-    closeBookingResult() {
-      this.$emit("closeBookingResult");
     }
   }
 };
@@ -89,12 +90,9 @@ export default {
         height: 10px;
         background-image: repeating-linear-gradient(
           45deg,
-          transparent 3px,
-          transparent 8px,
-          #333 8px,
-          #333 9px,
-          transparent 9px,
-          transparent 13px
+          transparent 3px 8px,
+          #333 8px 9px,
+          transparent 9px 13px
         );
       }
     }

@@ -68,12 +68,9 @@ export default {};
     bottom: 17px;
     background-image: repeating-linear-gradient(
       45deg,
-      $gray-200 0px,
-      $gray-200 3px,
-      $white 3px,
-      $white 4px,
-      $gray-200 4px,
-      $gray-200 7px
+      $gray-200 0px 3px,
+      $white 3px 4px,
+      $gray-200 4px 7px
     );
     clip-path: polygon(0 0, 100% 0, 100% 17px, 17px 17px, 17px 100%, 0 100%);
   }

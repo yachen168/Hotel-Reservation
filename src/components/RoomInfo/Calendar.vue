@@ -71,6 +71,9 @@ export default {
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
   background-color: #f7f7f7;
   color: #6d7278;
+  .day__month_btn {
+    pointer-events: none;
+  }
   .cell {
     line-height: 40px;
     margin: 5px 0;
@@ -88,12 +91,9 @@ export default {
     background-color: transparent;
     background-image: repeating-linear-gradient(
       45deg,
-      transparent 0px,
-      transparent 2px,
-      #333 2px,
-      #333 3px,
-      transparent 3px,
-      transparent 5px
+      transparent 0px 2px,
+      #333 2px 3px,
+      transparent 3px 5px
     );
     border: none;
   }
