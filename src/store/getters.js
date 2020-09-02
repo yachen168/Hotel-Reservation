@@ -1,13 +1,18 @@
 export default {
-  allRooms({ state }) {
+  allRooms(state) {
     return state.allRooms;
   },
-  roomInfo({ state }) {
+  roomInfo(state) {
     return state.room[0];
   },
-  datesHaveBeenBooked({ state }) {
-    return state.booking.map(value => {
-      return new Date(value.date);
-    });
+  datesHaveBeenBooked(state) {
+    return {
+      dates: state.booking.map(value => {
+        return new Date(value.date);
+      })
+    };
+  },
+  bookingStatus(state) {
+    return state.bookingStatus;
   }
 };

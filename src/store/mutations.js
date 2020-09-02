@@ -1,15 +1,15 @@
 export default {
-  setAllRoomsInfo({ state }, allRoomsInfo) {
+  setAllRoomsInfo(state, allRoomsInfo) {
     state.allRooms = allRoomsInfo;
   },
-  setRoomInfo({ state }, roomInfo) {
+  setRoomInfo(state, roomInfo) {
     state.room = roomInfo.room;
     state.booking = roomInfo.booking;
   },
-  setBookingStatus({ state }, bookingStatus) {
+  setBookingStatus(state, bookingStatus) {
     state.bookingStatus = bookingStatus;
   },
-  resetBookingStatus({ state }) {
+  resetBookingStatus(state) {
     state.bookingStatus = "";
   }
 };
