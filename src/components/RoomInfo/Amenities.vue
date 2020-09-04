@@ -86,7 +86,7 @@ export default {
   grid-template-columns: 1fr 1fr;
   padding: 15px;
   margin-top: 40px;
-  background-color: $gray-300;
+  background-color: #F0F0F0;
   @media (min-width: 576px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -110,7 +110,7 @@ export default {
     }
   }
   h4.serve {
-    color: $black;
+    color: #000;
   }
 }
 </style>

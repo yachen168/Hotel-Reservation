@@ -48,7 +48,7 @@ export default {
   margin-left: auto;
   padding: 7px 20px;
   background-color: #484848;
-  color: $white;
+  color: #fff;
   font-size: 16px;
   letter-spacing: 1px;
   outline: none;
@@ -59,7 +59,7 @@ export default {
   align-items: center;
   margin-bottom: 20px;
   font-size: 60px;
-  color: $green-100;
+  color: #ADE8C6;
 }
 
 .booking-result {

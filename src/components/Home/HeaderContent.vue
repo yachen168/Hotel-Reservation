@@ -56,9 +56,9 @@ export default {};
   text-align: center;
   border: 2px solid #ffffff;
   font-size: 35px;
-  color: $white;
+  color: #fff;
   font-weight: 500;
-  background-color: $gray-200;
+  background-color: rgba(255, 255, 255, 0.30);
   &::before {
     content: "";
     position: absolute;
@@ -68,9 +68,9 @@ export default {};
     bottom: 17px;
     background-image: repeating-linear-gradient(
       45deg,
-      $gray-200 0px 3px,
-      $white 3px 4px,
-      $gray-200 4px 7px
+      rgba(255, 255, 255, 0.30) 0px 3px,
+      #fff 3px 4px,
+      rgba(255, 255, 255, 0.30) 4px 7px
     );
     clip-path: polygon(0 0, 100% 0, 100% 17px, 17px 17px, 17px 100%, 0 100%);
   }
@@ -84,13 +84,13 @@ export default {};
   margin-left: 30px;
   width: 50%;
   align-items: center;
-  color: $white;
+  color: #fff;
   .media-icons {
     flex: 0 0 70px;
     margin: 20px 30px 0 0;
     svg {
       font-size: 24px;
-      color: $white;
+      color: #fff;
     }
     svg:not(:first-child) {
       margin-left: 15px;
