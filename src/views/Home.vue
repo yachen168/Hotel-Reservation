@@ -1,14 +1,14 @@
 <template>
   <div class="home">
     <header>
-      <Carousel :allRooms="allRooms"></Carousel>
+      <Carousel :allRooms="$store.getters.allRooms"></Carousel>
       <HeaderContent></HeaderContent>
     </header>
     <main>
       <b-container fluid>
         <b-row class="room-cards-wrapper">
           <b-col
-            v-for="room in allRooms"
+            v-for="room in $store.getters.allRooms"
             :key="room.id"
             cols="12"
             sm="6"
@@ -27,7 +27,6 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 import HeaderContent from "@/components/Home/HeaderContent";
 import Carousel from "@/components/Home/Carousel";
 import RoomCards from "@/components/Home/RoomCards";
@@ -45,9 +44,6 @@ export default {
         params: { id: roomId }
       });
     }
-  },
-  computed: {
-    ...mapGetters(["allRooms"])
   }
 };
 </script>
@@ -57,6 +53,6 @@ export default {
   justify-content: center;
   max-width: 950px;
   margin: 0 auto;
-  transform: translateY(-100px);
+  transform: translateY(-50px);
 }
 </style>
