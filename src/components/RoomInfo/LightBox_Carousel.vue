@@ -1,9 +1,9 @@
 <template>
-  <div class="carousel-lightbox" @click="close">
+  <div class="carousel-lightbox" @click="$emit('closeLightbox')">
     <div class="carousel" @click.stop>
       <div
         class="bgImage"
-        :style="{ backgroundImage: `url(${roomUrls[nowImageIndex]})` }"
+        :style="{ backgroundImage: `url(${roomUrls[imageIndex]})` }"
       ></div>
       <div class="arrow arrow-prev" @click.stop="showLastImage">
         <font-awesome-icon icon="chevron-left" />
@@ -13,7 +13,7 @@
       </div>
       <div class="footer">
         <h1 class="room-name">{{ roomName }}</h1>
-        <span class="count">{{ nowImageIndex + 1 }} / {{ roomUrls.length }}</span>
+        <span class="count">{{ imageIndex + 1 }} / {{ roomUrls.length }}</span>
       </div>
     </div>
   </div>
@@ -29,28 +29,29 @@ export default {
     roomName: {
       type: String,
       required: true
+    },
+    nowImageIndex: {
+      type: Number,
+      requird: true
     }
   },
   data() {
     return {
-      nowImageIndex: 0
+      imageIndex: this.nowImageIndex
     };
   },
   methods: {
     showLastImage() {
-      this.nowImageIndex--;
-      if (this.nowImageIndex < 0) {
-        this.nowImageIndex = this.roomUrls.length - 1;
+      this.imageIndex--;
+      if (this.imageIndex < 0) {
+        this.imageIndex = this.roomUrls.length - 1;
       }
     },
     showNextImage() {
-      this.nowImageIndex++;
-      if (this.nowImageIndex > this.roomUrls.length - 1) {
-        this.nowImageIndex = 0;
+      this.imageIndex++;
+      if (this.imageIndex > this.roomUrls.length - 1) {
+        this.imageIndex = 0;
       }
-    },
-    close() {
-      this.$emit("closeLightbox");
     }
   }
 };
@@ -92,6 +93,7 @@ export default {
   height: 100%;
   background-size: cover;
   background-position: 50% 70%;
+  transition: 0.2s;
 }
 
 .arrow {
