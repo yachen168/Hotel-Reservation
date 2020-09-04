@@ -8,7 +8,8 @@ const Axios = axios.create({
     "Content-Type": "application/json",
     Accept: "application/json",
     Authorization: `Bearer ${token}`
-  }
+  },
+  timeout: 15000
 });
 
 export default Axios;
