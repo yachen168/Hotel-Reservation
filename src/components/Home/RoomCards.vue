@@ -1,5 +1,5 @@
 <template>
-  <figure class="card" @click="toRoomDetailPage(room.id)">
+  <figure class="card" @click="$emit('toRoomDetailPage', room.id)">
     <div
       class="image"
       :style="{ backgroundImage: `url(${room.imageUrl})` }"
@@ -22,11 +22,6 @@ export default {
     room: {
       type: Object,
       required: true
-    }
-  },
-  methods: {
-    toRoomDetailPage(roomId) {
-      this.$emit("toRoomDetailPage", roomId);
     }
   }
 };
