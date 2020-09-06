@@ -46,6 +46,7 @@ export default {
     flex: 1;
     padding: 20px;
     overflow: hidden;
+    transition: 0.5s;
     h1 {
       margin-bottom: 0;
       letter-spacing: 2px;
@@ -79,7 +80,6 @@ export default {
 .card:hover {
   .card-footer {
     flex: 3;
-    transition: 0.5s;
   }
   h1 {
     margin-bottom: 20px;
