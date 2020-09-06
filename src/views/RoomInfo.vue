@@ -73,7 +73,7 @@
         <h3 class="calendar-hint">
           顯示近 90 日的房間預訂狀態，劃線代表已被預訂
         </h3>
-        <Calendar :highlighted="datesHaveBeenBooked"></Calendar>
+        <Calendar :highlighted="$store.getters.datesHaveBeenBooked"></Calendar>
         <button class="reservation-button" @click="isShowBookingDialog = true">
           預約時段
         </button>
@@ -93,7 +93,7 @@
         v-if="isShowBookingDialog"
         @confirmBooking="confirmBooking"
         @closeBookingDialog="isShowBookingDialog = false"
-        :datesHaveBeenBooked="datesHaveBeenBooked"
+        :datesHaveBeenBooked="$store.getters.datesHaveBeenBooked"
         :normalDayPrice="roomInfo.normalDayPrice"
         :holidayPrice="roomInfo.holidayPrice"
       ></BookingDialog>
@@ -102,7 +102,7 @@
       <BookingResult
         v-if="isShowBookingResult"
         @closeBookingResult="closeBookingResult"
-        :bookingStatus="bookingStatus"
+        :bookingStatus="$store.getters.bookingStatus"
         :roomId="roomId"
       ></BookingResult>
     </transition>
@@ -110,7 +110,6 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 import Calendar from "@/components/RoomInfo/Calendar";
 import CarouselLightBox from "@/components/RoomInfo/LightBox_Carousel";
 import Amenities from "@/components/RoomInfo/Amenities";
@@ -151,9 +150,6 @@ export default {
       this.isShowBookingResult = false;
       this.$store.commit("resetBookingStatus");
     }
-  },
-  computed: {
-    ...mapGetters(["roomInfo", "datesHaveBeenBooked", "bookingStatus"])
   }
 };
 </script>
@@ -185,7 +181,7 @@ export default {
   font-size: 18px;
   color: #000;
   font-weight: 500;
-  background-color: rgba(255, 255, 255, 0.30);
+  background-color: rgba(255, 255, 255, 0.3);
   z-index: 5;
   cursor: pointer;
   &::before {
@@ -270,7 +266,7 @@ export default {
   }
   h3 {
     font-size: 14px;
-    color: #6D7278;
+    color: #6d7278;
   }
   .holiday-price h2 {
     font-size: 16px;
