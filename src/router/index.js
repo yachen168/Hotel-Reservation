@@ -1,6 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import store from "@/store";
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
 
 Vue.use(VueRouter);
 
@@ -35,6 +37,15 @@ const router = new VueRouter({
   scrollBehavior() {
     return { x: 0, y: 0 };
   }
+});
+
+router.beforeEach((routerTo, routerFrom, next) => {
+  NProgress.start();
+  next();
+});
+
+router.afterEach(() => {
+  NProgress.done();
 });
 
 export default router;
