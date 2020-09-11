@@ -27,14 +27,7 @@ export default {
       DatePickerFormat: "yyyy-MM-dd",
       daysOut90Days: {
         customPredictor: function(date) {
-          const now = Date.now();
-          const totalSecondsADay = 60 * 60 * 24 * 1000;
-          const totalSecondsOfNintyDays = totalSecondsADay * 90;
-          if (
-            date.getTime() > now + totalSecondsOfNintyDays ||
-            date.getTime() < now - totalSecondsADay
-          )
-            return true;
+          if (Date.now() > date) return true;
         }
       },
       language: {
@@ -91,9 +84,12 @@ export default {
     background-color: transparent;
     background-image: repeating-linear-gradient(
       45deg,
-      transparent 0px 2px,
-      #333 2px 3px,
-      transparent 3px 5px
+      transparent 0px,
+      transparent 2px,
+      #333 2px,
+      #333 3px,
+      transparent 3px,
+      transparent 5px
     );
     border: none;
   }

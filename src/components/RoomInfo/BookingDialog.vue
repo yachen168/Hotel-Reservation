@@ -204,14 +204,7 @@ export default {
       return {
         dates: this.datesHaveBeenBooked.dates,
         customPredictor: function(date) {
-          const now = Date.now();
-          const totalSecondsADay = 60 * 60 * 24 * 1000;
-          const totalSecondsOfNintyDays = totalSecondsADay * 90;
-          if (
-            date.getTime() > now + totalSecondsOfNintyDays ||
-            date.getTime() < now - totalSecondsADay
-          )
-            return true;
+          if (Date.now() > date) return true;
         }
       };
     },
@@ -220,9 +213,7 @@ export default {
         to: new Date(this.startDate),
         dates: [...this.datesHaveBeenBooked.dates, new Date(this.startDate)],
         customPredictor: function(date) {
-          const now = Date.now();
-          const totalSecondsInNintyDays = 60 * 60 * 24 * 90 * 1000;
-          if (date.getTime() > now + totalSecondsInNintyDays) return true;
+          if (Date.now() > date) return true;
         }
       };
     },
