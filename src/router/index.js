@@ -11,10 +11,9 @@ const routes = [
     path: "/",
     name: "Home",
     component: () => import("@/views/Home"),
-    beforeEnter(routerTo, routerFrom, next) {
-      store.dispatch("getAllRoomsInfo").then(() => {
-        next();
-      });
+    async beforeEnter(routerTo, routerFrom, next) {
+      await store.dispatch("getAllRoomsInfo");
+      next();
     }
   },
   {
@@ -22,11 +21,25 @@ const routes = [
     name: "RoomInfo",
     props: true,
     component: () => import("@/views/RoomInfo"),
-    beforeEnter(routerTo, routerfrom, next) {
-      store.dispatch("getRoomInfo", routerTo.params.id).then(() => {
-        next();
-      });
+    async beforeEnter(routerTo, routerfrom, next) {
+      await store.dispatch("getRoomInfo", routerTo.params.id);
+      next();
     }
+  },
+  {
+    path: "/404",
+    name: "404",
+    props: true,
+    component: () => import("@/views/NotFound")
+  },
+  {
+    path: "/network-issue",
+    name: "network-issue",
+    component: () => import("@/views/NetworkIssue")
+  },
+  {
+    path: "*",
+    redirect: { name: 404, params: { resource: "page" } }
   }
 ];
 
