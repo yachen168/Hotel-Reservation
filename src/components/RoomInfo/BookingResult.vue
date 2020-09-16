@@ -1,26 +1,14 @@
 <template>
   <div class="booking-result">
     <b-overlay :show="!bookingStatus" class="position-absolute"></b-overlay>
-    <section v-if="bookingStatus === 'success'">
-      <h1>預約成功</h1>
-      <div class="icon">
-        <font-awesome-icon icon="check-circle"></font-awesome-icon>
-      </div>
+    <section v-if="bookingStatus">
+      <h1>{{ bookingDialog.title }}</h1>
+      <slot />
       <button
         class="close-button"
         @click.prevent.stop="$emit('closeBookingResult')"
       >
-        回頁面
-      </button>
-    </section>
-    <section v-if="bookingStatus === 'fail'">
-      <h1>預約失敗</h1>
-      <p>預約時間已被人預定</p>
-      <button
-        class="close-button"
-        @click.prevent.stop="$emit('closeBookingResult')"
-      >
-        返回
+        {{ bookingDialog.buttonText }}
       </button>
     </section>
   </div>
@@ -34,8 +22,8 @@ export default {
       type: String,
       required: true
     },
-    roomId: {
-      type: String,
+    bookingDialog: {
+      type: Object,
       required: true
     }
   }
@@ -59,7 +47,7 @@ export default {
   align-items: center;
   margin-bottom: 20px;
   font-size: 60px;
-  color: #ADE8C6;
+  color: #ade8c6;
 }
 
 .booking-result {

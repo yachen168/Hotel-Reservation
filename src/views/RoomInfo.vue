@@ -104,7 +104,19 @@
         @closeBookingResult="closeBookingResult"
         :bookingStatus="$store.getters.bookingStatus"
         :roomId="roomId"
-      ></BookingResult>
+        :bookingDialog="
+          $store.getters.bookingStatus === 'success'
+            ? successBooking
+            : failBooking
+        "
+      >
+        <div class="content">
+          <div class="icon" v-if="$store.getters.bookingStatus === 'success'">
+            <font-awesome-icon icon="check-circle"></font-awesome-icon>
+          </div>
+          <p v-else>預約時間已被人預定</p>
+        </div>
+      </BookingResult>
     </transition>
   </b-container>
 </template>
@@ -131,7 +143,15 @@ export default {
       isShowBookingDialog: false,
       isShowBookingResult: false,
       nowImageIndex: 0,
-      roomInfo: this.$store.getters.roomInfo
+      roomInfo: this.$store.getters.roomInfo,
+      successBooking: {
+        title: "預約成功",
+        buttonText: "回頁面"
+      },
+      failBooking: {
+        title: "預約失敗",
+        buttonText: "返回"
+      }
     };
   },
   methods: {
