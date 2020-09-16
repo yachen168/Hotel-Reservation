@@ -7,7 +7,7 @@
           :style="{ backgroundImage: `url(${roomInfo.imageUrl[0]})` }"
           @click.stop="openCarouselLightBox(0)"
         >
-          <div class="logo" @click.stop="$router.back()">WhiteSpace</div>
+          <div class="logo" @click.stop="$router.push('/')">WhiteSpace</div>
         </div>
       </b-col>
       <b-col cols="4" class="d-flex flex-column">
