@@ -1,4 +1,5 @@
 import Vue from "vue";
-import { BootstrapVue } from "bootstrap-vue";
 
-Vue.use(BootstrapVue);
+import { LayoutPlugin, CarouselPlugin } from "bootstrap-vue";
+Vue.use(CarouselPlugin);
+Vue.use(LayoutPlugin);

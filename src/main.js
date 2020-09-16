@@ -6,6 +6,8 @@ import store from "./store";
 import "./plugins/bootstrapVue";
 import "./plugins/fontawesome";
 
+import "./assets/scss/main.scss";
+
 new Vue({
   router,
   store,
