@@ -84,7 +84,7 @@ export default {
   .count {
     font-weight: 300;
     letter-spacing: 1px;
-    color: $white;
+    color: #fff;
     font-size: 16px;
   }
 }
@@ -104,7 +104,7 @@ export default {
   height: 100%;
   width: 100px;
   top: 0;
-  color: $white;
+  color: #fff;
   font-size: 30px;
   cursor: pointer;
 }
