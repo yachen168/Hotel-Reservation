@@ -39,7 +39,7 @@ const routes = [
   },
   {
     path: "*",
-    redirect: { name: 404, params: { resource: "page" } }
+    redirect: { name: "404" }
   }
 ];
 
