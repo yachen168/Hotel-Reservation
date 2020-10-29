@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import Axios from "@/api/config.js";
+import API from "@/api/service.js";
 
 Vue.use(Vuex);
 
@@ -29,7 +29,7 @@ export default new Vuex.Store({
   actions: {
     async getAllRoomsInfo({ commit }) {
       try {
-        const response = await Axios.get("rooms");
+        const response = await API.get("rooms");
         commit("setAllRoomsInfo", response.data.items);
       } catch (error) {
         return error.response;
@@ -37,7 +37,7 @@ export default new Vuex.Store({
     },
     async getRoomInfo({ commit }, roomId) {
       try {
-        const response = await Axios.get(`room/${roomId}`);
+        const response = await API.get(`room/${roomId}`);
         commit("setRoomInfo", response.data);
       } catch (error) {
         return error.response;
@@ -45,7 +45,7 @@ export default new Vuex.Store({
     },
     async postBooking({ dispatch, commit }, { roomId, userBookingInfo }) {
       try {
-        await Axios.post(`room/${roomId}`, userBookingInfo);
+        await API.post(`room/${roomId}`, userBookingInfo);
         commit("setBookingStatus", "success");
         dispatch("getRoomInfo", roomId);
       } catch (error) {
