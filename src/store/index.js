@@ -28,12 +28,20 @@ export default new Vuex.Store({
   },
   actions: {
     async getAllRoomsInfo({ commit }) {
-      const response = await Axios.get("rooms");
-      commit("setAllRoomsInfo", response.data.items);
+      try {
+        const response = await Axios.get("rooms");
+        commit("setAllRoomsInfo", response.data.items);
+      } catch (error) {
+        return error.response;
+      }
     },
     async getRoomInfo({ commit }, roomId) {
-      const response = await Axios.get(`room/${roomId}`);
-      commit("setRoomInfo", response.data);
+      try {
+        const response = await Axios.get(`room/${roomId}`);
+        commit("setRoomInfo", response.data);
+      } catch (error) {
+        return error.response;
+      }
     },
     async postBooking({ dispatch, commit }, { roomId, userBookingInfo }) {
       try {
