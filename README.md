@@ -1,6 +1,6 @@
 # 旅館預約服務
 ## 成果 Demo
-Github page: https://yachen168.github.io/Hotel-Reservation/
+Github page: https://yachen168.github.io/Hotel-Reservation/ <br>
 Heroku: https://yachen-hotel-reservation.herokuapp.com/
 
 ![](./demo.png)
