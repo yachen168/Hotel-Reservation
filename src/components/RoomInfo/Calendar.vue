@@ -13,6 +13,7 @@
 import Datepicker from "vuejs-datepicker";
 
 export default {
+  name: "Calendar",
   components: {
     Datepicker
   },
@@ -27,7 +28,14 @@ export default {
       DatePickerFormat: "yyyy-MM-dd",
       daysOut90Days: {
         customPredictor: function(date) {
-          if (Date.now() > date) return true;
+          const now = Date.now();
+          const totalSecondsADay = 60 * 60 * 24 * 1000;
+          const totalSecondsOfNintyDays = totalSecondsADay * 90;
+          if (
+            date.getTime() > now + totalSecondsOfNintyDays ||
+            Date.now() > date
+          )
+            return true;
         }
       },
       language: {

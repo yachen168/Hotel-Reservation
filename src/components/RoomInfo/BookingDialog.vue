@@ -100,6 +100,7 @@
 import Datepicker from "vuejs-datepicker";
 
 export default {
+  name: "BookingDialog",
   components: {
     Datepicker
   },
@@ -204,7 +205,14 @@ export default {
       return {
         dates: this.datesHaveBeenBooked.dates,
         customPredictor: function(date) {
-          if (Date.now() > date) return true;
+          const now = Date.now();
+          const totalSecondsADay = 60 * 60 * 24 * 1000;
+          const totalSecondsOfNintyDays = totalSecondsADay * 90;
+          if (
+            date.getTime() > now + totalSecondsOfNintyDays ||
+            Date.now() > date
+          )
+            return true;
         }
       };
     },
@@ -213,7 +221,15 @@ export default {
         to: new Date(this.startDate),
         dates: [...this.datesHaveBeenBooked.dates, new Date(this.startDate)],
         customPredictor: function(date) {
-          if (Date.now() > date) return true;
+          // if (Date.now() > date) return true;
+          const now = Date.now();
+          const totalSecondsADay = 60 * 60 * 24 * 1000;
+          const totalSecondsOfNintyDays = totalSecondsADay * 90;
+          if (
+            date.getTime() > now + totalSecondsOfNintyDays ||
+            Date.now() > date
+          )
+            return true;
         }
       };
     },
