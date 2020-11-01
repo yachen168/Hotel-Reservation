@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: "bookingResult",
+  name: "BookingResult",
   props: {
     bookingStatus: {
       type: String,

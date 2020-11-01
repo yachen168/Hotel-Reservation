@@ -71,6 +71,7 @@
 
 <script>
 export default {
+  name: "Amenities",
   props: {
     roomInfo: {
       type: Object,
@@ -86,7 +87,7 @@ export default {
   grid-template-columns: 1fr 1fr;
   padding: 15px;
   margin-top: 40px;
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
   @media (min-width: 576px) {
     grid-template-columns: 1fr 1fr 1fr;
   }

@@ -25,7 +25,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "HeaderContent"
+};
 </script>
 
 <style lang="scss" scoped>
@@ -58,7 +60,7 @@ export default {};
   font-size: 35px;
   color: #fff;
   font-weight: 500;
-  background-color: rgba(255, 255, 255, 0.30);
+  background-color: rgba(255, 255, 255, 0.3);
   &::before {
     content: "";
     position: absolute;
@@ -68,10 +70,14 @@ export default {};
     bottom: 17px;
     background-image: repeating-linear-gradient(
       45deg,
-      rgba(255, 255, 255, 0.30) 0px 3px,
-      #fff 3px 4px,
-      rgba(255, 255, 255, 0.30) 4px 7px
+      rgba(255, 255, 255, 0.3) 0px,
+      rgba(255, 255, 255, 0.3) 3px,
+      #fff 3px,
+      #fff 4px,
+      rgba(255, 255, 255, 0.3) 4px,
+      rgba(255, 255, 255, 0.3) 7px
     );
+
     clip-path: polygon(0 0, 100% 0, 100% 17px, 17px 17px, 17px 100%, 0 100%);
   }
 }

@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  name: "Carousel",
   props: {
     allRooms: {
       type: Array,
