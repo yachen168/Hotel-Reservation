@@ -33,7 +33,7 @@ export default {
           const totalSecondsOfNintyDays = totalSecondsADay * 90;
           if (
             date.getTime() > now + totalSecondsOfNintyDays ||
-            Date.now() > date
+            Date.now() - totalSecondsADay > date
           )
             return true;
         }
