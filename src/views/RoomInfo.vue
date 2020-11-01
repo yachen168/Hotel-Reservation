@@ -125,7 +125,7 @@
 
 <script>
 import Calendar from "@/components/RoomInfo/Calendar";
-import CarouselLightBox from "@/components/RoomInfo/LightBox_Carousel";
+import CarouselLightBox from "@/components/RoomInfo/LightBoxCarousel";
 import Amenities from "@/components/RoomInfo/Amenities";
 import BookingDialog from "@/components/RoomInfo/BookingDialog";
 import BookingResult from "@/components/RoomInfo/BookingResult";
