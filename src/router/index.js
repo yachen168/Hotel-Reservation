@@ -10,7 +10,7 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: () => import("@/views/Home"),
+    component: () => import(/* webpackChunkName: "home" */ "@/views/Home"),
     async beforeEnter(routerTo, routerFrom, next) {
       await store.dispatch("getAllRoomsInfo");
       next();
@@ -20,7 +20,8 @@ const routes = [
     path: "/room/:id",
     name: "RoomInfo",
     props: true,
-    component: () => import("@/views/RoomInfo"),
+    component: () =>
+      import(/* webpackChunkName: "room-info" */ "@/views/RoomInfo"),
     async beforeEnter(routerTo, routerfrom, next) {
       await store.dispatch("getRoomInfo", routerTo.params.id);
       next();
@@ -29,13 +30,13 @@ const routes = [
   {
     path: "/404",
     name: "404",
-    props: true,
-    component: () => import("@/views/NotFound")
+    component: () => import(/* webpackChunkName: "error" */ "@/views/NotFound")
   },
   {
     path: "/network-issue",
-    name: "network-issue",
-    component: () => import("@/views/NetworkIssue")
+    name: "networkIssue",
+    component: () =>
+      import(/* webpackChunkName: "error" */ "@/views/NetworkIssue")
   },
   {
     path: "*",
