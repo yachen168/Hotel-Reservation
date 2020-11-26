@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import router from "../router/index.js"
 import API from "@/api/service.js";
 
 Vue.use(Vuex);
@@ -40,7 +41,7 @@ export default new Vuex.Store({
         const response = await API.get(`room/${roomId}`);
         commit("setRoomInfo", response.data);
       } catch (error) {
-        return error.response;
+        router.push({ name: "404" });
       }
     },
     async postBooking({ dispatch, commit }, { roomId, userBookingInfo }) {
