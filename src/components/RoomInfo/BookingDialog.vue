@@ -210,7 +210,7 @@ export default {
           const totalSecondsOfNintyDays = totalSecondsADay * 90;
           if (
             date.getTime() > now + totalSecondsOfNintyDays ||
-            Date.now() > date
+            Date.now() - totalSecondsADay > date
           )
             return true;
         }
@@ -336,6 +336,12 @@ export default {
     }
     ::v-deep .datePickerStyle.pass {
       border: 1px solid #c9c9c9;
+    }
+    ::v-deep .vdp-datepicker .vdp-datepicker__calendar{
+      position: fixed;
+      right: 0; 
+      left: 0;
+      margin: 0 auto;
     }
   }
 }
